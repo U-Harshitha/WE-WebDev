@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Wikipedia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            width: 150px;
+            background-color: #f0f0f0;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            color: #333;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+
+        .sidebar a:hover {
+            background-color: #ddd;
+        }
+
+        /* Main content styling */
+        .main-content {
+            margin-left: 180px;
+            padding: 20px;
+            width: calc(100% - 220px);
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        /* Expandable list styling */
+        .toggle-btn {
+            cursor: pointer;
+            font-size: 18px;
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        .list-content {
+            display: none;
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .expanded {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="#subheading1">Early Life</a>
+        <a href="#subheading2">Career & Internships</a>
+        <a href="#subheading3">Projects</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Personal Wikipedia</h1>
+        <p>A mini personal Wikipedia that talks about early life, career, internships, and projects.</p>
+
+        <!-- Subheading 1 with expandable list -->
+        <h2 id="subheading1">Early Life <span class="toggle-btn" id="toggle1">[+]</span></h2>
+        <ul class="list-content" id="list1">
+            <li>Born and raised in Hyderabad, India.</li>
+            <li>Completed schooling with a keen interest in science and technology.</li>
+            <li>Passion for solving problems and building things using technology.</li>
+        </ul>
+
+        <!-- Subheading 2 with expandable list -->
+        <h2 id="subheading2">Career & Internships <span class="toggle-btn" id="toggle2">[+]</span></h2>
+        <ul class="list-content" id="list2">
+            <li>Google SWE Internship - Selected for 2024.</li>
+            <li>GenAI Intern at SHR Softek - Worked on NLP models, vector search with Qdrant, and integrating Langchain with LLMs.</li>
+            <li>DevOps Intern at Stalcon Solutions - Built and managed CI/CD pipelines using AWS Cloud services.</li>
+            <li>Winner of the JPMC Code for Good 2024 Hackathon.</li>
+        </ul>
+        
+        <!-- Subheading 3 with expandable list -->
+        <h2 id="subheading3">Projects <span class="toggle-btn" id="toggle3">[+]</span></h2>
+        <ul class="list-content" id="list3">
+            <li>Web Scraping & Generative AI - Developed 'Doc Scrapper,' using Selenium and Google Generative AI API to scrape CSR documents for NGOs.</li>
+            <li>Chess Engine - Created a Chess Engine using Monte Carlo Tree Search (MCTS) and Transformers, integrating TensorFlow and Stable Baselines3.</li>
+            <li>Financial Planner Website - Built a web app to provide financial calculations, loan plans, and retirement solutions using HTML, CSS, and JavaScript.</li>
+        </ul>
+    </div>
+
+    <!-- JavaScript for the functionality -->
+    <script>
+        document.getElementById("toggle1").addEventListener("click", function() {
+            const list = document.getElementById("list1");
+            const toggle = document.getElementById("toggle1");
+
+            if (list.classList.contains("expanded")) {
+                list.classList.remove("expanded");
+                toggle.textContent = "[+]";
+            } else {
+                list.classList.add("expanded");
+                toggle.textContent = "[-]";
+            }
+        });
+
+        document.getElementById("toggle2").addEventListener("click", function() {
+            const list = document.getElementById("list2");
+            const toggle = document.getElementById("toggle2");
+
+            if (list.classList.contains("expanded")) {
+                list.classList.remove("expanded");
+                toggle.textContent = "[+]";
+            } else {
+                list.classList.add("expanded");
+                toggle.textContent = "[-]";
+            }
+        });
+
+
+        document.getElementById("toggle3").addEventListener("click", function() {
+            const list = document.getElementById("list3");
+            const toggle = document.getElementById("toggle3");
+
+            if (list.classList.contains("expanded")) {
+                list.classList.remove("expanded");
+                toggle.textContent = "[+]";
+            } else {
+                list.classList.add("expanded");
+                toggle.textContent = "[-]";
+            }
+        });
+    </script>
+    
+</body>
+</html>
